@@ -1,11 +1,9 @@
+import javax.swing.table.AbstractTableModel;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
-
-public class Tarolo {
+public class Tarolo extends AbstractTableModel {
     ArrayList<Jegy> lista = new ArrayList<>();
 
     /*
@@ -88,5 +86,57 @@ public class Tarolo {
             if(lista.get(i).getVonatszam() == id)
                 lista.remove(i);
     }
+
+    @Override
+    public int getRowCount() {
+        return lista.size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return 5;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        Jegy jegy = lista.get(rowIndex);
+        switch(columnIndex) {
+            case 0: return jegy.getIndulasHelye();
+            case 1: return jegy.getErkezesHelye();
+            case 2: return jegy.getIndulasIdeje();
+            case 3: return jegy.getErkezesIdeje();
+            default: return jegy.getAr();
+        }
+    }
+
+
+    @Override
+    public String getColumnName(int column) {
+        switch(column){
+            case 0:
+                return "Indulás helye";
+            case 1:
+                return "Érkezés helye";
+            case 2:
+                return "Indulás ideje";
+            case 3:
+                return "Érkezés ideje";
+            default:
+                return "Ár";
+        }
+    }
+
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        switch (columnIndex){
+            case 0:
+            case 1:
+                return String.class;
+            default:
+                return Integer.class;
+        }
+    }
+
 
 }

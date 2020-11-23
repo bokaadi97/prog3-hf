@@ -1,16 +1,17 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Fokepernyo extends JFrame {
+    Tarolo tarolo;
     private JMenuItem kilepes, vasarlas, jonmegy, ujszemely, szemelylista, nyitzar, szekrenylista;
     private JMenu app, jegy, szekrenyek;
     private JMenuBar menu;
     //private JButton jonmegyb, nyitzarb;
 
-    Fokepernyo(){
+    Fokepernyo(Tarolo t){
         super("ELVIRA");
+        tarolo = t;
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(640, 480);
         menuSetup();
@@ -62,7 +63,7 @@ public class Fokepernyo extends JFrame {
                     System.exit(0);
                     break;
                 case "vasarlas":
-                    VasarlasAblak va = new VasarlasAblak();//Fokepernyo.this);
+                    VasarlasAblak va = new VasarlasAblak(Fokepernyo.this);
                     va.setVisible(true);
                     break;
 

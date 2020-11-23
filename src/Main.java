@@ -8,7 +8,7 @@ public class Main {
         Tarolo t = new Tarolo();
 	    Kosar k = new Kosar();
         t.beolvas();
-        Fokepernyo fk = new Fokepernyo();
+        Fokepernyo fk = new Fokepernyo(t);
         fk.setVisible(true);
 
         while(true){
