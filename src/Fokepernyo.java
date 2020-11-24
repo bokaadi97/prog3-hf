@@ -1,13 +1,14 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Fokepernyo extends JFrame {
     Tarolo tarolo;
-    private JMenuItem kilepes, vasarlas, jonmegy, ujszemely, szemelylista, nyitzar, szekrenylista;
-    private JMenu app, jegy, szekrenyek;
+    private JMenuItem kilepes, vasarlas, hozzaad, torol;
+    private JMenu app, jegy, vonat;
     private JMenuBar menu;
-    //private JButton jonmegyb, nyitzarb;
+    private JButton vasarlas2, kilepes2;
 
     Fokepernyo(Tarolo t){
         super("ELVIRA");
@@ -37,17 +38,34 @@ public class Fokepernyo extends JFrame {
         menu.add(jegy);
 
 
-        szekrenyek = new JMenu("Szekrények");
-        nyitzar = new JMenuItem("Szekrény kezelése...");
-        nyitzar.setActionCommand("nyitzar");
-        //nyitzar.addActionListener(new ElemActionListener());
-        szekrenyek.add(nyitzar);
-        szekrenylista = new JMenuItem("Szekrények listája...");
-        szekrenylista.setActionCommand("szekrenylista");
-        //szekrenylista.addActionListener(new ElemActionListener());
-        szekrenyek.add(szekrenylista);
-        menu.add(szekrenyek);
+        vonat = new JMenu("Vonatok kezelése");
+        hozzaad = new JMenuItem("Új vonat hozzáadása");
+        hozzaad.setActionCommand("hozzaad");
+        hozzaad.addActionListener(new ElemActionListener());
+        vonat.add(hozzaad);
+        torol = new JMenuItem("Vonat törlése");
+        torol.setActionCommand("torol");
+        //torol.addActionListener(new ElemActionListener());
+        vonat.add(torol);
+        menu.add(vonat);
         this.setJMenuBar(menu);
+
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(5,5,5,5);
+        vasarlas2 = new JButton("Menetjegy vásárlása");
+        vasarlas2.setActionCommand("vasarlas");
+        vasarlas2.addActionListener(new ElemActionListener());
+        c.gridx = 0; c.gridy = 0;
+        panel.add(vasarlas2, c);
+        kilepes2 = new JButton("Kilépés");
+        kilepes2.setActionCommand("exit");
+        kilepes2.addActionListener(new ElemActionListener());
+        c.gridx = 0; c.gridy = 1; c.gridwidth = 2;
+        panel.add(kilepes2, c);
+        add(panel);
 
     }
 
@@ -66,12 +84,11 @@ public class Fokepernyo extends JFrame {
                     VasarlasAblak va = new VasarlasAblak(Fokepernyo.this);
                     va.setVisible(true);
                     break;
-
-                    /*
-                case "jonmegy":
-                    JonMegyWindow jonMegyWindow = new JonMegyWindow(MainWindow.this);
-                    jonMegyWindow.setVisible(true);
+                case "hozzaad":
+                    UjVonatAblak uva = new UjVonatAblak(Fokepernyo.this);
+                    uva.setVisible(true);
                     break;
+                    /*
                 case "ujszemely":
                     UjszemelyWindow ujszemelyWindow = new UjszemelyWindow(MainWindow.this);
                     ujszemelyWindow.setVisible(true);

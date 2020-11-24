@@ -33,7 +33,7 @@ public class Main {
                     k.osszegez();
                     break;
                 case 2:
-                    t.hozzaad();
+                    //t.hozzaad();
                     break;
                 case 3:
                     t.kilistaz();

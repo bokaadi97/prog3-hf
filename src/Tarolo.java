@@ -1,7 +1,6 @@
 import javax.swing.table.AbstractTableModel;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Tarolo extends AbstractTableModel {
     ArrayList<Jegy> lista = new ArrayList<>();
@@ -61,23 +60,7 @@ public class Tarolo extends AbstractTableModel {
         System.out.println("\n\n");
     }
 
-    void hozzaad(){
-        Scanner in = new Scanner(System.in);
-        System.out.print("Indulas helye: ");
-        String iH = in.nextLine();
-        System.out.print("Erkezes helye: ");
-        String eH = in.nextLine();
-        System.out.print("Indulas ideje: ");
-        int iI  = in.nextInt();
-        System.out.print("Erkezes ideje: ");
-        int eI = in.nextInt();
-        System.out.print("Vagonok szama: ");
-        int vSz = in.nextInt();
-        System.out.print("Ferohelyek szama vagononkent: ");
-        int f = in.nextInt();
-        System.out.print("Jegy ara: ");
-        double a = in.nextDouble();
-        Jegy j = new Jegy(iH, eH, iI, eI, vSz, f, a);
+    void hozzaad(Jegy j){
         lista.add(j);
     }
 
