@@ -11,6 +11,7 @@ public class Main {
         Fokepernyo fk = new Fokepernyo(t);
         fk.setVisible(true);
 
+        /*
         while(true){
             System.out.println("Mit szeretnel csinalni?\n" +
                     "1. Menetjegy vásárlása\n" +
@@ -52,6 +53,7 @@ public class Main {
             }
 
         }
+        */
 
     }
 }

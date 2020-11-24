@@ -17,6 +17,7 @@ public class UjVonatAblak extends JFrame{
         super("Új vonat hozzáadása");
         this.szulo = szulo;
         setSize(500, 250);
+        setResizable(false);
 
         indulasHelyeSzoveg = new JTextField("Indulás helye: ");
         indulasHelyeSzoveg.setEditable(false);

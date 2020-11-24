@@ -22,8 +22,8 @@ public class Tarolo extends AbstractTableModel {
     void idInicializalas(){
         int max = 0;
         for(int i = 0; i < lista.size(); i++){
-            if(max < lista.get(i).getId()){
-                max = lista.get(i).getId();
+            if(max < lista.get(i).getVonatszam()){
+                max = lista.get(i).getVonatszam();
             }
         }
         Jegy j = new Jegy();
@@ -77,18 +77,21 @@ public class Tarolo extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 8;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Jegy jegy = lista.get(rowIndex);
         switch(columnIndex) {
-            case 0: return jegy.getIndulasHelye();
-            case 1: return jegy.getErkezesHelye();
-            case 2: return jegy.getIndulasIdeje();
-            case 3: return jegy.getErkezesIdeje();
-            default: return jegy.getAr();
+            case 1: return jegy.getIndulasHelye();
+            case 2: return jegy.getErkezesHelye();
+            case 3: return jegy.getIndulasIdeje();
+            case 4: return jegy.getErkezesIdeje();
+            case 5: return jegy.getVagonokSzama();
+            case 6: return jegy.getFerohely();
+            case 7: return jegy.getAr();
+            default: return jegy.getVonatszam();
         }
     }
 
@@ -96,16 +99,22 @@ public class Tarolo extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         switch(column){
-            case 0:
-                return "Indulás helye";
             case 1:
-                return "Érkezés helye";
+                return "Indulás helye";
             case 2:
-                return "Indulás ideje";
+                return "Érkezés helye";
             case 3:
+                return "Indulás ideje";
+            case 4:
                 return "Érkezés ideje";
-            default:
+            case 5:
+                return "Vagonok száma";
+            case 6:
+                return "Férőhelyek száma";
+            case 7:
                 return "Ár";
+            default:
+                return "Vonat azonosítója";
         }
     }
 
@@ -113,8 +122,8 @@ public class Tarolo extends AbstractTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex){
-            case 0:
             case 1:
+            case 2:
                 return String.class;
             default:
                 return Integer.class;

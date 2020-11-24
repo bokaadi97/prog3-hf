@@ -15,8 +15,8 @@ public class Fokepernyo extends JFrame {
         tarolo = t;
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(640, 480);
+        //setResizable(false);
         menuSetup();
-        //panelSetup();
     }
 
     private void menuSetup(){
@@ -45,7 +45,7 @@ public class Fokepernyo extends JFrame {
         vonat.add(hozzaad);
         torol = new JMenuItem("Vonat törlése");
         torol.setActionCommand("torol");
-        //torol.addActionListener(new ElemActionListener());
+        torol.addActionListener(new ElemActionListener());
         vonat.add(torol);
         menu.add(vonat);
         this.setJMenuBar(menu);
@@ -81,32 +81,17 @@ public class Fokepernyo extends JFrame {
                     System.exit(0);
                     break;
                 case "vasarlas":
-                    VasarlasAblak va = new VasarlasAblak(Fokepernyo.this);
-                    va.setVisible(true);
+                    VonatListaAblak vla = new VonatListaAblak(Fokepernyo.this);
+                    vla.setVisible(true);
                     break;
                 case "hozzaad":
                     UjVonatAblak uva = new UjVonatAblak(Fokepernyo.this);
                     uva.setVisible(true);
                     break;
-                    /*
-                case "ujszemely":
-                    UjszemelyWindow ujszemelyWindow = new UjszemelyWindow(MainWindow.this);
-                    ujszemelyWindow.setVisible(true);
+                case "torol":
+                    VonatTorlesAblak vta = new VonatTorlesAblak(Fokepernyo.this);
+                    vta.setVisible(true);
                     break;
-                case "szemelylista":
-                    SzemelylistaWindow szemelylistaWindow = new SzemelylistaWindow(MainWindow.this);
-                    szemelylistaWindow.setVisible(true);
-                    break;
-                case "nyitzar":
-                    NyitzarWindow nyitzarWindow = new NyitzarWindow(MainWindow.this);
-                    nyitzarWindow.setVisible(true);
-                    break;
-                case "szekrenylista":
-                    SzekrenylistaWindow szekrenylistaWindow = new SzekrenylistaWindow(MainWindow.this);
-                    szekrenylistaWindow.setVisible(true);
-                    break;
-
-                     */
             }
         }
     }

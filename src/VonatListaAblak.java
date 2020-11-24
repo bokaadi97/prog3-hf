@@ -1,17 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class VasarlasAblak extends JFrame {
+public class VonatListaAblak extends JFrame {
     private Tarolo data;
-    private Fokepernyo szulo;
-    
-    VasarlasAblak(Fokepernyo szulo){
+    //private Fokepernyo szulo;
+
+    VonatListaAblak(Fokepernyo szulo){
         super("Vásárlás");
-        this.szulo = szulo;
+        //this.szulo = szulo;
         data = szulo.tarolo;
 
         // Felépítjük az ablakot
-        setMinimumSize(new Dimension(500, 200));
+        setSize(new Dimension(500, 200));
 
         this.setLayout(new BorderLayout());
         JTable table = new JTable(data);
