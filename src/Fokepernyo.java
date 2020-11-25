@@ -7,18 +7,27 @@ import java.io.IOException;
 public class Fokepernyo extends JFrame {
     private Tarolo tarolo;
     private Kosar kosar;
-    private JMenuItem kilepes, vasarlas, hozzaad, torol;
+    private JMenuItem kilepes, vasarlas, hozzaad, torol, listaz;
     private JMenu app, jegy, vonat;
     private JMenuBar menu;
     private JButton vasarlas2, kilepes2;
 
     Tarolo getTarolo(){return tarolo;}
+    Kosar getKosar(){return kosar;}
 
     Fokepernyo() throws IOException, ClassNotFoundException {
         super("ELVIRA");
         tarolo = new Tarolo();
         tarolo.beolvas();
+
         kosar = new Kosar();
+/*
+        kosar.kosarbaTesz(tarolo, 1, 10);
+        kosar.kosarbaTesz(tarolo, 0, 0);
+        for(int i = 0; i < kosar.getKosar().size(); i++){
+            kosar.getKosar().get(i).kiir();
+        }
+*/
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(640, 480);
         //setResizable(false);
@@ -53,6 +62,12 @@ public class Fokepernyo extends JFrame {
         torol.setActionCommand("torol");
         torol.addActionListener(new ElemActionListener());
         vonat.add(torol);
+        listaz = new JMenuItem("Vonatok listázása");
+        listaz.setActionCommand("listaz");
+        listaz.addActionListener(new ElemActionListener());
+        vonat.add(listaz);
+
+
         menu.add(vonat);
         this.setJMenuBar(menu);
 
@@ -86,9 +101,13 @@ public class Fokepernyo extends JFrame {
                 case "exit":
                     System.exit(0);
                     break;
-                case "vasarlas":
+                case "listaz":
                     VonatListaAblak vla = new VonatListaAblak(Fokepernyo.this);
                     vla.setVisible(true);
+                    break;
+                case "vasarlas":
+                    VasarlasAblak va = new VasarlasAblak(Fokepernyo.this);
+                    va.setVisible(true);
                     break;
                 case "hozzaad":
                     UjVonatAblak uva = new UjVonatAblak(Fokepernyo.this);

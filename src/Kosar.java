@@ -1,14 +1,25 @@
 import java.util.ArrayList;
 
 public class Kosar {
-    private ArrayList<Vonat> kosar = new ArrayList<>();
+    private ArrayList<Jegy> kosar = new ArrayList<>();
+
+    ArrayList<Jegy> getKosar(){return kosar;}
+
+    void kosarbaTesz(Tarolo t, int vonatszam, int kedvezmeny, int darab){
+        for(int i = 0; i < darab; i++) {
+            Vonat v = t.vonatKereseseVonatszamAlapjan(vonatszam);
+            kosar.add(new Jegy(v, kedvezmeny));
+        }
+    }
+
+
 
     /*
     void kosarbaTesz(Tarolo t, int vonatszam, int darab){
         for(int i = 0; i < darab; i++)
             kosar.add(t.lista.get(vonatszam));
     }
-    */
+
 
     void kilistaz(){
         for(int i = 0; i < kosar.size(); i++){
@@ -27,5 +38,7 @@ public class Kosar {
         }
         System.out.println("A vegosszeg: " + vegosszeg);
     }
+
+    */
 
 }

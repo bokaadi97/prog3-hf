@@ -26,7 +26,7 @@ public class Vonat implements Serializable{
 
     public Vonat() {}
 
-    int getId(){ return id;}
+    //int getId(){ return id;}
     int getVonatszam(){ return vonatszam;}
     String getIndulasHelye(){ return indulasHelye;}
     String getErkezesHelye(){ return erkezesHelye;}
@@ -35,9 +35,7 @@ public class Vonat implements Serializable{
     int getVagonokSzama(){ return vagonokSzama;}
     int getFerohely(){ return ferohely;}
     double getAr(){ return ar;}
-    //int getKedvezmeny(){ return kedvezmeny;}
 
     void setId(int id){ this.id = id;}
-    //void setKedvezmeny(int kedvezmeny){ this.kedvezmeny = kedvezmeny;}
 
 }

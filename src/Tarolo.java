@@ -5,6 +5,17 @@ import java.util.ArrayList;
 public class Tarolo extends AbstractTableModel {
     private ArrayList<Vonat> lista = new ArrayList<>();
 
+    ArrayList<Vonat> getLista(){return lista;}
+
+    Vonat vonatKereseseVonatszamAlapjan(int vonatszam){
+        for(int i = 0; i < lista.size(); i++){
+            if(vonatszam == lista.get(i).getVonatszam()){
+                return lista.get(i);
+            }
+        }
+        return null;
+    }
+
     /*
     void beolvas() throws IOException {
         File file = new File("C:\\Users\\Dell\\Downloads\\hf\\hf\\adat.txt");
