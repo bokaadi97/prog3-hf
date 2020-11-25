@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Jegy implements Serializable{
+public class Vonat implements Serializable{
     private static int id;
     private int vonatszam;
     private String indulasHelye;
@@ -12,7 +12,7 @@ public class Jegy implements Serializable{
     private double ar;
     private int kedvezmeny;
 
-    Jegy(String iH, String eH, int iI, int eI, int vSz, int f, double a){
+    Vonat(String iH, String eH, int iI, int eI, int vSz, int f, double a){
         vonatszam = id++;
         indulasHelye = iH;
         erkezesHelye = eH;
@@ -24,7 +24,7 @@ public class Jegy implements Serializable{
         kedvezmeny = 0;
     }
 
-    public Jegy() {}
+    public Vonat() {}
 
     int getId(){ return id;}
     int getVonatszam(){ return vonatszam;}

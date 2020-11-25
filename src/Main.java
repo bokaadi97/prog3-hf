@@ -1,10 +1,8 @@
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Scanner in = new Scanner(System.in);
         Tarolo t = new Tarolo();
 	    Kosar k = new Kosar();
         t.beolvas();

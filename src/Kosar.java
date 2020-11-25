@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Kosar {
-    ArrayList<Jegy> kosar = new ArrayList<>();
+    ArrayList<Vonat> kosar = new ArrayList<>();
 
     void kosarbaTesz(Tarolo t, int vonatszam, int darab){
         for(int i = 0; i < darab; i++)

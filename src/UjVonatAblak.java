@@ -117,7 +117,7 @@ public class UjVonatAblak extends JFrame{
             if(!indulasHelye.getText().isEmpty() && !erkezesHelye.getText().isEmpty() && !indulasIdeje.getText().isEmpty() &&
                     !erkezesIdeje.getText().isEmpty() && !vagonokSzama.getText().isEmpty() && !ferohely.getText().isEmpty() &&
                     !ar.getText().isEmpty()){
-                Jegy j = new Jegy(
+                Vonat v = new Vonat(
                         indulasHelye.getText(),
                         erkezesHelye.getText(),
                         parseInt(indulasIdeje.getText()),
@@ -126,7 +126,7 @@ public class UjVonatAblak extends JFrame{
                         parseInt(ferohely.getText()),
                         parseDouble(ar.getText())
                         );
-                szulo.tarolo.hozzaad(j);
+                szulo.tarolo.hozzaad(v);
                 try {
                     szulo.tarolo.mentes();
                 } catch (IOException ioException) {

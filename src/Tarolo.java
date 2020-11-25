@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Tarolo extends AbstractTableModel {
-    ArrayList<Jegy> lista = new ArrayList<>();
+    ArrayList<Vonat> lista = new ArrayList<>();
 
     /*
     void beolvas() throws IOException {
@@ -26,8 +26,8 @@ public class Tarolo extends AbstractTableModel {
                 max = lista.get(i).getVonatszam();
             }
         }
-        Jegy j = new Jegy();
-        j.setId(++max);
+        Vonat v = new Vonat();
+        v.setId(++max);
     }
 
     public void mentes() throws IOException {
@@ -60,8 +60,8 @@ public class Tarolo extends AbstractTableModel {
         System.out.println("\n\n");
     }
 
-    void hozzaad(Jegy j){
-        lista.add(j);
+    void hozzaad(Vonat v){
+        lista.add(v);
     }
 
     void torol(int id){
@@ -82,16 +82,16 @@ public class Tarolo extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Jegy jegy = lista.get(rowIndex);
+        Vonat v = lista.get(rowIndex);
         switch(columnIndex) {
-            case 1: return jegy.getIndulasHelye();
-            case 2: return jegy.getErkezesHelye();
-            case 3: return jegy.getIndulasIdeje();
-            case 4: return jegy.getErkezesIdeje();
-            case 5: return jegy.getVagonokSzama();
-            case 6: return jegy.getFerohely();
-            case 7: return jegy.getAr();
-            default: return jegy.getVonatszam();
+            case 1: return v.getIndulasHelye();
+            case 2: return v.getErkezesHelye();
+            case 3: return v.getIndulasIdeje();
+            case 4: return v.getErkezesIdeje();
+            case 5: return v.getVagonokSzama();
+            case 6: return v.getFerohely();
+            case 7: return v.getAr();
+            default: return v.getVonatszam();
         }
     }
 
