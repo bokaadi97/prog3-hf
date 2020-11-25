@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Fokepernyo extends JFrame {
     private Tarolo tarolo;
     private Kosar kosar;
-    private JMenuItem kilepes, vasarlas, hozzaad, torol, listaz;
+    private JMenuItem kilepes, vasarlas, hozzaad, torol, listaz, fizetes;
     private JMenu app, jegy, vonat;
     private JMenuBar menu;
     private JButton vasarlas2, kilepes2;
@@ -50,6 +50,12 @@ public class Fokepernyo extends JFrame {
         vasarlas.setActionCommand("vasarlas");
         vasarlas.addActionListener(new ElemActionListener());
         jegy.add(vasarlas);
+
+        fizetes = new JMenuItem("Kosár");
+        fizetes.setActionCommand("fizetes");
+        fizetes.addActionListener(new ElemActionListener());
+        jegy.add(fizetes);
+
         menu.add(jegy);
 
 
@@ -116,6 +122,10 @@ public class Fokepernyo extends JFrame {
                 case "torol":
                     VonatTorlesAblak vta = new VonatTorlesAblak(Fokepernyo.this);
                     vta.setVisible(true);
+                    break;
+                case "fizetes":
+                    KosarAblak ka = new KosarAblak(Fokepernyo.this);
+                    ka.setVisible(true);
                     break;
             }
         }

@@ -2,19 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class VonatListaAblak extends JFrame {
-    private Tarolo data;
-    //private Fokepernyo szulo;
+    private Tarolo adat;
 
     VonatListaAblak(Fokepernyo szulo){
-        super("Vásárlás");
-        //this.szulo = szulo;
-        data = szulo.getTarolo();
+        super("Vonatok listája");
+        adat = szulo.getTarolo();
 
-        // Felépítjük az ablakot
         setSize(new Dimension(500, 200));
 
         this.setLayout(new BorderLayout());
-        JTable table = new JTable(data);
+        JTable table = new JTable(adat);
         JScrollPane scrollPane = new JScrollPane(table);
         table.setFillsViewportHeight(true);
         add(scrollPane, BorderLayout.CENTER);

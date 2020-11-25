@@ -5,7 +5,7 @@ import static java.lang.Integer.parseInt;
 
 public class VasarlasAblak extends JFrame {
     private Fokepernyo szulo;
-    private JTextField vonatszam, vonatszamSzoveg, dbSzoveg, kedv33, kedv33Szoveg, kedv50, kedv50Szoveg, kedv90, kedv90Szoveg;
+    private JTextField vonatszam, vonatszamSzoveg, dbSzoveg, teljes, teljesSzoveg, kedv33, kedv33Szoveg, kedv50, kedv50Szoveg, kedv90, kedv90Szoveg;
     private JButton ok;
 
     VasarlasAblak(Fokepernyo szulo){
@@ -19,14 +19,17 @@ public class VasarlasAblak extends JFrame {
         vonatszamSzoveg.setEditable(false);
         dbSzoveg = new JTextField("Hány darabot szeretnél venni az alábbi jegytípusokból?");
         dbSzoveg.setEditable(false);
-        kedv33Szoveg = new JTextField("33% (26 éven aluli/családi kedv.)");
+        teljesSzoveg = new JTextField("Teljes árú");
+        teljesSzoveg.setEditable(false);
+        kedv33Szoveg = new JTextField("33% kedvezmény(26 éven aluli/családi)");
         kedv33Szoveg.setEditable(false);
-        kedv50Szoveg = new JTextField("50% (diák/nyugdíjas)");
+        kedv50Szoveg = new JTextField("50% kedvezmény(diák/nyugdíjas)");
         kedv50Szoveg.setEditable(false);
-        kedv90Szoveg = new JTextField("90% (munkanélküli/nagycsaládos)");
+        kedv90Szoveg = new JTextField("90% kedvezmény(munkanélküli/nagycsaládos)");
         kedv90Szoveg.setEditable(false);
 
         vonatszam = new JTextField();
+        teljes =new JTextField();
         kedv33 = new JTextField();
         kedv50 = new JTextField();
         kedv90 = new JTextField();
@@ -47,6 +50,7 @@ public class VasarlasAblak extends JFrame {
                 .addGroup(gl.createParallelGroup()
                         .addComponent(vonatszamSzoveg)
                         .addComponent(dbSzoveg)
+                        .addComponent(teljesSzoveg)
                         .addComponent(kedv33Szoveg)
                         .addComponent(kedv50Szoveg)
                         .addComponent(kedv90Szoveg)
@@ -54,6 +58,7 @@ public class VasarlasAblak extends JFrame {
                 //második oszlop fentről lefelé
                 .addGroup(gl.createParallelGroup()
                         .addComponent(vonatszam)
+                        .addComponent(teljes)
                         .addComponent(kedv33)
                         .addComponent(kedv50)
                         .addComponent(kedv90)
@@ -70,6 +75,10 @@ public class VasarlasAblak extends JFrame {
                 //második sor fentről lefelé
                 .addGroup(gl.createParallelGroup()
                         .addComponent(dbSzoveg)
+                )
+                .addGroup(gl.createParallelGroup()
+                        .addComponent(teljesSzoveg)
+                        .addComponent(teljes)
                 )
                 .addGroup(gl.createParallelGroup()
                         .addComponent(kedv33Szoveg)
@@ -100,16 +109,20 @@ public class VasarlasAblak extends JFrame {
          * */
         @Override
         public void actionPerformed(ActionEvent e) {
+            if(!vonatszam.getText().isEmpty() && !teljes.getText().isEmpty()){
+                szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 0, parseInt(teljes.getText()));
+            }
             if(!vonatszam.getText().isEmpty() && !kedv33.getText().isEmpty()){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 33, parseInt(kedv33.getText()));
-            } else if(!vonatszam.getText().isEmpty() && !kedv50.getText().isEmpty()){
+            }
+            if(!vonatszam.getText().isEmpty() && !kedv50.getText().isEmpty()){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 50, parseInt(kedv50.getText()));
-            } else if(!vonatszam.getText().isEmpty() && !kedv90.getText().isEmpty()){
+            }
+            if(!vonatszam.getText().isEmpty() && !kedv90.getText().isEmpty()){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 90, parseInt(kedv90.getText()));
             }
-            else JOptionPane.showMessageDialog(szulo, "Hiányzó adatok", "Warning", JOptionPane.WARNING_MESSAGE);
-            for(int i = 0; i < szulo.getKosar().getKosar().size(); i++){
-                szulo.getKosar().getKosar().get(i).kiir();
+            else {
+                JOptionPane.showMessageDialog(szulo, "Hiányzó adatok", "Warning", JOptionPane.WARNING_MESSAGE);
             }
             VasarlasAblak.this.dispose();
         }

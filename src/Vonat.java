@@ -10,7 +10,6 @@ public class Vonat implements Serializable{
     private int vagonokSzama;
     private int ferohely;
     private double ar;
-    //private int kedvezmeny;
 
     Vonat(String iH, String eH, int iI, int eI, int vSz, int f, double a){
         vonatszam = id++;
@@ -21,12 +20,10 @@ public class Vonat implements Serializable{
         vagonokSzama = vSz;
         ferohely = f;
         ar = a;
-        //kedvezmeny = 0;
     }
 
     public Vonat() {}
 
-    //int getId(){ return id;}
     int getVonatszam(){ return vonatszam;}
     String getIndulasHelye(){ return indulasHelye;}
     String getErkezesHelye(){ return erkezesHelye;}
