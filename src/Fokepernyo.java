@@ -1,8 +1,13 @@
+//TODO specifikáció átnézése
+//TODO idő kezelése
+//TODO jegy törlése
+//TODO dokumentáció elkészítése
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
 
 public class Fokepernyo extends JFrame {
     private Tarolo tarolo;
@@ -21,16 +26,10 @@ public class Fokepernyo extends JFrame {
         tarolo.beolvas();
 
         kosar = new Kosar();
-/*
-        kosar.kosarbaTesz(tarolo, 1, 10);
-        kosar.kosarbaTesz(tarolo, 0, 0);
-        for(int i = 0; i < kosar.getKosar().size(); i++){
-            kosar.getKosar().get(i).kiir();
-        }
-*/
+
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(640, 480);
-        //setResizable(false);
+
         menuSetup();
     }
 
@@ -64,14 +63,7 @@ public class Fokepernyo extends JFrame {
         hozzaad.setActionCommand("hozzaad");
         hozzaad.addActionListener(new ElemActionListener());
         vonat.add(hozzaad);
-        /*
-        torol = new JMenuItem("Vonat törlése");
-        torol.setActionCommand("torol");
-        torol.addActionListener(new ElemActionListener());
-        vonat.add(torol);
-
-         */
-        listaz = new JMenuItem("Vonatok listázása&törlés");
+        listaz = new JMenuItem("Vonatok listázása és törlése");
         listaz.setActionCommand("listaz");
         listaz.addActionListener(new ElemActionListener());
         vonat.add(listaz);
@@ -122,13 +114,6 @@ public class Fokepernyo extends JFrame {
                     UjVonatAblak uva = new UjVonatAblak(Fokepernyo.this);
                     uva.setVisible(true);
                     break;
-                    /*
-                case "torol":
-                    VonatTorlesAblak vta = new VonatTorlesAblak(Fokepernyo.this);
-                    vta.setVisible(true);
-                    break;
-
-                     */
                 case "fizetes":
                     KosarAblak ka = new KosarAblak(Fokepernyo.this);
                     ka.setVisible(true);
@@ -137,6 +122,9 @@ public class Fokepernyo extends JFrame {
         }
     }
 
-
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        Fokepernyo fk = new Fokepernyo();
+        fk.setVisible(true);
+    }
 
 }
