@@ -22,8 +22,7 @@ public class Kosar extends AbstractTableModel {
         for(int i = 0; i < kosar.size(); i++){
             vegosszeg += kosar.get(i).getKedvezmenyesAr();
         }
-        String s;
-        return s = String.valueOf(vegosszeg);
+        return String.valueOf(vegosszeg);
     }
 
     @Override
@@ -33,17 +32,18 @@ public class Kosar extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Jegy j = kosar.get(rowIndex);
         switch(columnIndex) {
-            case 0: return j.getVonat().getIndulasHelye();
-            case 1: return j.getVonat().getErkezesHelye();
-            case 2: return j.getVonat().getIndulasIdeje();
-            case 3: return j.getVonat().getErkezesIdeje();
+            case 0: return j.getJegyszam();
+            case 1: return j.getVonat().getIndulasHelye();
+            case 2: return j.getVonat().getErkezesHelye();
+            case 3: return j.getVonat().getIndulasIdeje();
+            case 4: return j.getVonat().getErkezesIdeje();
             default: return j.getKedvezmenyesAr();
         }
     }
@@ -53,12 +53,14 @@ public class Kosar extends AbstractTableModel {
     public String getColumnName(int column) {
         switch(column){
             case 0:
-                return "Indulás helye";
+                return "Sorszám";
             case 1:
-                return "Érkezés helye";
+                return "Indulás helye";
             case 2:
-                return "Indulás ideje";
+                return "Érkezés helye";
             case 3:
+                return "Indulás ideje";
+            case 4:
                 return "Érkezés ideje";
             default:
                 return "Ár";

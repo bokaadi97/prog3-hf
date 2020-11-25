@@ -64,11 +64,14 @@ public class Fokepernyo extends JFrame {
         hozzaad.setActionCommand("hozzaad");
         hozzaad.addActionListener(new ElemActionListener());
         vonat.add(hozzaad);
+        /*
         torol = new JMenuItem("Vonat törlése");
         torol.setActionCommand("torol");
         torol.addActionListener(new ElemActionListener());
         vonat.add(torol);
-        listaz = new JMenuItem("Vonatok listázása");
+
+         */
+        listaz = new JMenuItem("Vonatok listázása&törlés");
         listaz.setActionCommand("listaz");
         listaz.addActionListener(new ElemActionListener());
         vonat.add(listaz);
@@ -119,10 +122,13 @@ public class Fokepernyo extends JFrame {
                     UjVonatAblak uva = new UjVonatAblak(Fokepernyo.this);
                     uva.setVisible(true);
                     break;
+                    /*
                 case "torol":
                     VonatTorlesAblak vta = new VonatTorlesAblak(Fokepernyo.this);
                     vta.setVisible(true);
                     break;
+
+                     */
                 case "fizetes":
                     KosarAblak ka = new KosarAblak(Fokepernyo.this);
                     ka.setVisible(true);

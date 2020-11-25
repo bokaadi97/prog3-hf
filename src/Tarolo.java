@@ -79,6 +79,8 @@ public class Tarolo extends AbstractTableModel {
         for(int i = 0; i < lista.size(); i++)
             if(lista.get(i).getVonatszam() == id)
                 lista.remove(i);
+        fireTableRowsDeleted(0, lista.size() - 1);
+
     }
 
 
