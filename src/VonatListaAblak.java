@@ -8,7 +8,7 @@ public class VonatListaAblak extends JFrame {
     VonatListaAblak(Fokepernyo szulo){
         super("Vásárlás");
         //this.szulo = szulo;
-        data = szulo.tarolo;
+        data = szulo.getTarolo();
 
         // Felépítjük az ablakot
         setSize(new Dimension(500, 200));

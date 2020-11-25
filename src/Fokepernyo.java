@@ -2,17 +2,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Fokepernyo extends JFrame {
-    Tarolo tarolo;
+    private Tarolo tarolo;
+    private Kosar kosar;
     private JMenuItem kilepes, vasarlas, hozzaad, torol;
     private JMenu app, jegy, vonat;
     private JMenuBar menu;
     private JButton vasarlas2, kilepes2;
 
-    Fokepernyo(Tarolo t){
+    Tarolo getTarolo(){return tarolo;}
+
+    Fokepernyo() throws IOException, ClassNotFoundException {
         super("ELVIRA");
-        tarolo = t;
+        tarolo = new Tarolo();
+        tarolo.beolvas();
+        kosar = new Kosar();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(640, 480);
         //setResizable(false);

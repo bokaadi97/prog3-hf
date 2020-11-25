@@ -3,10 +3,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Tarolo t = new Tarolo();
-	    Kosar k = new Kosar();
-        t.beolvas();
-        Fokepernyo fk = new Fokepernyo(t);
+        Fokepernyo fk = new Fokepernyo();
         fk.setVisible(true);
 
         /*

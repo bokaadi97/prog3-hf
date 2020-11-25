@@ -54,10 +54,10 @@ public class VonatTorlesAblak extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(!id.getText().isEmpty()){
-                szulo.tarolo.torol(parseInt(id.getText()));
+                szulo.getTarolo().torol(parseInt(id.getText()));
                 VonatTorlesAblak.this.dispose();
                 try {
-                    szulo.tarolo.mentes();
+                    szulo.getTarolo().mentes();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

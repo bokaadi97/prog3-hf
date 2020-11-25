@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Tarolo extends AbstractTableModel {
-    ArrayList<Vonat> lista = new ArrayList<>();
+    private ArrayList<Vonat> lista = new ArrayList<>();
 
     /*
     void beolvas() throws IOException {
@@ -69,6 +69,8 @@ public class Tarolo extends AbstractTableModel {
             if(lista.get(i).getVonatszam() == id)
                 lista.remove(i);
     }
+
+
 
     @Override
     public int getRowCount() {

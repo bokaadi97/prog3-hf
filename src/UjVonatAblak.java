@@ -126,9 +126,9 @@ public class UjVonatAblak extends JFrame{
                         parseInt(ferohely.getText()),
                         parseDouble(ar.getText())
                         );
-                szulo.tarolo.hozzaad(v);
+                szulo.getTarolo().hozzaad(v);
                 try {
-                    szulo.tarolo.mentes();
+                    szulo.getTarolo().mentes();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }

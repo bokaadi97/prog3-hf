@@ -10,7 +10,7 @@ public class Vonat implements Serializable{
     private int vagonokSzama;
     private int ferohely;
     private double ar;
-    private int kedvezmeny;
+    //private int kedvezmeny;
 
     Vonat(String iH, String eH, int iI, int eI, int vSz, int f, double a){
         vonatszam = id++;
@@ -21,7 +21,7 @@ public class Vonat implements Serializable{
         vagonokSzama = vSz;
         ferohely = f;
         ar = a;
-        kedvezmeny = 0;
+        //kedvezmeny = 0;
     }
 
     public Vonat() {}
@@ -35,9 +35,9 @@ public class Vonat implements Serializable{
     int getVagonokSzama(){ return vagonokSzama;}
     int getFerohely(){ return ferohely;}
     double getAr(){ return ar;}
-    int getKedvezmeny(){ return kedvezmeny;}
+    //int getKedvezmeny(){ return kedvezmeny;}
 
     void setId(int id){ this.id = id;}
-    void setKedvezmeny(int kedvezmeny){ this.kedvezmeny = kedvezmeny;}
+    //void setKedvezmeny(int kedvezmeny){ this.kedvezmeny = kedvezmeny;}
 
 }
