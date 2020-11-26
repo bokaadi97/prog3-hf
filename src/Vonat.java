@@ -5,13 +5,14 @@ public class Vonat implements Serializable{
     private int vonatszam;
     private String indulasHelye;
     private String erkezesHelye;
-    private int indulasIdeje;
-    private int erkezesIdeje;
+    private Ido indulasIdeje;
+    private Ido erkezesIdeje;
     private int vagonokSzama;
     private int ferohely;
     private double ar;
+    private int telitettseg;
 
-    Vonat(String iH, String eH, int iI, int eI, int vSz, int f, double a){
+    Vonat(String iH, String eH, Ido iI, Ido eI, int vSz, int f, double a){
         vonatszam = id++;
         indulasHelye = iH;
         erkezesHelye = eH;
@@ -20,19 +21,29 @@ public class Vonat implements Serializable{
         vagonokSzama = vSz;
         ferohely = f;
         ar = a;
+        telitettseg = 0;
     }
 
-    public Vonat() {}
+    Vonat() {}
 
     int getVonatszam(){ return vonatszam;}
     String getIndulasHelye(){ return indulasHelye;}
     String getErkezesHelye(){ return erkezesHelye;}
-    int getIndulasIdeje(){ return indulasIdeje;}
-    int getErkezesIdeje(){ return erkezesIdeje;}
+    Ido getIndulasIdeje(){ return indulasIdeje;}
+    Ido getErkezesIdeje(){ return erkezesIdeje;}
     int getVagonokSzama(){ return vagonokSzama;}
     int getFerohely(){ return ferohely;}
     double getAr(){ return ar;}
+    int getTelitettseg(){ return telitettseg;}
 
     void setId(int id){ this.id = id;}
+    void setTelitettseg(int t){telitettseg = t;}
+
+    boolean betelnee(int jegyekSzama){
+        if(telitettseg + jegyekSzama > vagonokSzama * ferohely)
+            return true;
+        else
+            return false;
+    }
 
 }

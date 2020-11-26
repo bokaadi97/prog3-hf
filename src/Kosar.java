@@ -4,8 +4,7 @@ import java.util.ArrayList;
 public class Kosar extends AbstractTableModel {
     private ArrayList<Jegy> kosar = new ArrayList<>();
 
-    //ArrayList<Jegy> getKosar(){return kosar;}
-
+    //TODO csökkenteni kell a telítettségeket
     void kosarUrites(){
             kosar.clear();
     }
@@ -42,8 +41,8 @@ public class Kosar extends AbstractTableModel {
             case 0: return j.getJegyszam();
             case 1: return j.getVonat().getIndulasHelye();
             case 2: return j.getVonat().getErkezesHelye();
-            case 3: return j.getVonat().getIndulasIdeje();
-            case 4: return j.getVonat().getErkezesIdeje();
+            case 3: return j.getVonat().getIndulasIdeje().toString();
+            case 4: return j.getVonat().getErkezesIdeje().toString();
             default: return j.getKedvezmenyesAr();
         }
     }
@@ -71,44 +70,11 @@ public class Kosar extends AbstractTableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex){
-            case 0:
-            case 1:
-                return String.class;
-            case 2:
-            case 3:
-                return Integer.class;
+            case 0: return Integer.class;
+            case 5: return Double.class;
             default:
-                return Double.class;
+                return String.class;
         }
     }
-
-
-
-    /*
-    void kosarbaTesz(Tarolo t, int vonatszam, int darab){
-        for(int i = 0; i < darab; i++)
-            kosar.add(t.lista.get(vonatszam));
-    }
-
-
-    void kilistaz(){
-        for(int i = 0; i < kosar.size(); i++){
-            System.out.println(kosar.get(i).getIndulasHelye() + " " + kosar.get(i).getErkezesHelye() + " " + kosar.get(i).getIndulasIdeje() + " "
-                    + kosar.get(i).getErkezesIdeje() + " " + kosar.get(i).getVagonokSzama() + " " + kosar.get(i).getFerohely() + " "
-                    + kosar.get(i).getAr() + " - ID: " + kosar.get(i).getVonatszam()// + "  kedvezmeny: " + kosar.get(i).getKedvezmeny()
-            );
-        }
-        System.out.println("\n\n");
-    }
-
-    void osszegez(){
-        double vegosszeg=0;
-        for(int i = 0; i < kosar.size(); i++){
-            vegosszeg += kosar.get(i).getAr();//*(1-kosar.get(i).getKedvezmeny()*0.01);
-        }
-        System.out.println("A vegosszeg: " + vegosszeg);
-    }
-
-    */
 
 }

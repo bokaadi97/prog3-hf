@@ -117,11 +117,12 @@ public class UjVonatAblak extends JFrame{
             if(!indulasHelye.getText().isEmpty() && !erkezesHelye.getText().isEmpty() && !indulasIdeje.getText().isEmpty() &&
                     !erkezesIdeje.getText().isEmpty() && !vagonokSzama.getText().isEmpty() && !ferohely.getText().isEmpty() &&
                     !ar.getText().isEmpty()){
+                Ido i = new Ido();
                 Vonat v = new Vonat(
                         indulasHelye.getText(),
                         erkezesHelye.getText(),
-                        parseInt(indulasIdeje.getText()),
-                        parseInt(erkezesIdeje.getText()),
+                        i.stringToIdo(indulasIdeje.getText()),
+                        i.stringToIdo(erkezesIdeje.getText()),
                         parseInt(vagonokSzama.getText()),
                         parseInt(ferohely.getText()),
                         parseDouble(ar.getText())

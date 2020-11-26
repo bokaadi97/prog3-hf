@@ -1,6 +1,5 @@
-//TODO specifikáció átnézése
-//TODO idő kezelése
-//TODO jegy törlése
+//TODO telítettség vizsgálata
+//TODO tesztesetek
 //TODO dokumentáció elkészítése
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +11,7 @@ import java.io.IOException;
 public class Fokepernyo extends JFrame {
     private Tarolo tarolo;
     private Kosar kosar;
-    private JMenuItem kilepes, vasarlas, hozzaad, torol, listaz, fizetes;
+    private JMenuItem kilepes, vasarlas, hozzaad, listaz, fizetes;
     private JMenu app, jegy, vonat;
     private JMenuBar menu;
     private JButton vasarlas2, kilepes2;

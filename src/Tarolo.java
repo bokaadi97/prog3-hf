@@ -5,8 +5,6 @@ import java.util.ArrayList;
 public class Tarolo extends AbstractTableModel {
     private ArrayList<Vonat> lista = new ArrayList<>();
 
-    ArrayList<Vonat> getLista(){return lista;}
-
     Vonat vonatKereseseVonatszamAlapjan(int vonatszam){
         for(int i = 0; i < lista.size(); i++){
             if(vonatszam == lista.get(i).getVonatszam()){
@@ -16,20 +14,9 @@ public class Tarolo extends AbstractTableModel {
         return null;
     }
 
-    /*
-    void beolvas() throws IOException {
-        File file = new File("C:\\Users\\Dell\\Downloads\\hf\\hf\\adat.txt");
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        String sor;
-        while ((sor = br.readLine()) != null){
-            String[] arrOfStr = sor.split("\t", 7);
-            Jegy j = new Jegy(arrOfStr[0], arrOfStr[1], parseInt(arrOfStr[2]), parseInt(arrOfStr[3]),
-                    parseInt(arrOfStr[4]), parseInt(arrOfStr[5]), parseDouble(arrOfStr[6]));
-            lista.add(j);
-        }
-    }
-    */
-
+    /**
+     *
+     */
     void idInicializalas(){
         int max = 0;
         for(int i = 0; i < lista.size(); i++){
@@ -58,10 +45,7 @@ public class Tarolo extends AbstractTableModel {
         idInicializalas();
     }
 
-    //String toString(int i){
-    //    return lista.get(i).getIndulasHelye() + " " + lista.get(i).getErkezesHelye();
-    //}
-
+    /*
     void kilistaz(){
         for(int i = 0; i < lista.size(); i++){
             System.out.println(lista.get(i).getIndulasHelye() + " " + lista.get(i).getErkezesHelye() + " " + lista.get(i).getIndulasIdeje() + " "
@@ -70,6 +54,7 @@ public class Tarolo extends AbstractTableModel {
         }
         System.out.println("\n\n");
     }
+    */
 
     void hozzaad(Vonat v){
         lista.add(v);
@@ -80,7 +65,6 @@ public class Tarolo extends AbstractTableModel {
             if(lista.get(i).getVonatszam() == id)
                 lista.remove(i);
         fireTableRowsDeleted(0, lista.size() - 1);
-
     }
 
 
@@ -92,20 +76,27 @@ public class Tarolo extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 9;
     }
 
+    /**
+     *
+     * @param rowIndex
+     * @param columnIndex
+     * @return
+     */
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Vonat v = lista.get(rowIndex);
         switch(columnIndex) {
             case 1: return v.getIndulasHelye();
             case 2: return v.getErkezesHelye();
-            case 3: return v.getIndulasIdeje();
-            case 4: return v.getErkezesIdeje();
+            case 3: return v.getIndulasIdeje().toString();
+            case 4: return v.getErkezesIdeje().toString();
             case 5: return v.getVagonokSzama();
             case 6: return v.getFerohely();
             case 7: return v.getAr();
+            case 8: return v.getTelitettseg();
             default: return v.getVonatszam();
         }
     }
@@ -128,6 +119,8 @@ public class Tarolo extends AbstractTableModel {
                 return "Férőhelyek száma";
             case 7:
                 return "Ár";
+            case 8:
+                return "Telítettség";
             default:
                 return "Vonat azonosítója";
         }
