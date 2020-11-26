@@ -4,9 +4,17 @@ import java.util.ArrayList;
 public class Kosar extends AbstractTableModel {
     private ArrayList<Jegy> kosar = new ArrayList<>();
 
-    //TODO csökkenteni kell a telítettségeket
-    void kosarUrites(){
-            kosar.clear();
+    void kosarUrites(Tarolo t){
+        for(int i = 0; i < kosar.size(); i++){
+            int vonatszam = kosar.get(i).getVonat().getVonatszam();
+            int telitettseg = t.vonatKereseseVonatszamAlapjan(vonatszam).getTelitettseg();
+            t.vonatKereseseVonatszamAlapjan(vonatszam).setTelitettseg(telitettseg - 1);
+        }
+        kosar.clear();
+    }
+
+    void kosarTorles(){
+        kosar.clear();
     }
 
     void kosarbaTesz(Tarolo t, int vonatszam, int kedvezmeny, int darab){

@@ -69,7 +69,7 @@ public class KosarAblak extends JFrame {
     private class TorlesButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            szulo.getKosar().kosarUrites();
+            szulo.getKosar().kosarUrites(szulo.getTarolo());
             KosarAblak.this.dispose();
         }
 
@@ -78,9 +78,9 @@ public class KosarAblak extends JFrame {
     private class FizetesButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            JOptionPane.showMessageDialog(szulo, "Kérem fizessen, majd vegye el jegyét!\nKellemes utazást!");
-            szulo.getKosar().kosarUrites();
+            szulo.getKosar().kosarTorles();
             KosarAblak.this.dispose();
+            JOptionPane.showMessageDialog(szulo, "Kérem fizessen, majd vegye el jegyét!\nKellemes utazást!");
         }
 
     }
