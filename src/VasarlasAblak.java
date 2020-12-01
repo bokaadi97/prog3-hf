@@ -104,13 +104,13 @@ public class VasarlasAblak extends JFrame {
 
     private class OkButtonActionListener implements ActionListener {
         /**
-         * Elvégzi egy személy létrehozásának műveletét.
+         * 
          * @param e
          * */
         @Override
         public void actionPerformed(ActionEvent e) {
             if(!vonatszam.getText().isEmpty() && !teljes.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).betelnee(parseInt(teljes.getText()))
+                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(teljes.getText()))
                             ){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 0, parseInt(teljes.getText()));
                 szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
@@ -118,21 +118,21 @@ public class VasarlasAblak extends JFrame {
                 );
             }
             if(!vonatszam.getText().isEmpty() && !kedv33.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).betelnee(parseInt(kedv33.getText()))){
+                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv33.getText()))){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 33, parseInt(kedv33.getText()));
                 szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
                         szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv33.getText())
                 );
             }
             if(!vonatszam.getText().isEmpty() && !kedv50.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).betelnee(parseInt(kedv50.getText()))){
+                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv50.getText()))){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 50, parseInt(kedv50.getText()));
                 szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
                         szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv50.getText())
                 );
             }
             if(!vonatszam.getText().isEmpty() && !kedv90.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).betelnee(parseInt(kedv90.getText()))){
+                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv90.getText()))){
                 szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 90, parseInt(kedv90.getText()));
                 szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
                         szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv90.getText())

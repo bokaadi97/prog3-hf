@@ -45,17 +45,6 @@ public class Tarolo extends AbstractTableModel {
         idInicializalas();
     }
 
-    /*
-    void kilistaz(){
-        for(int i = 0; i < lista.size(); i++){
-            System.out.println(lista.get(i).getIndulasHelye() + " " + lista.get(i).getErkezesHelye() + " " + lista.get(i).getIndulasIdeje() + " "
-                            + lista.get(i).getErkezesIdeje() + " " + lista.get(i).getVagonokSzama() + " " + lista.get(i).getFerohely() + " "
-                            + lista.get(i).getAr() + " - ID: " + lista.get(i).getVonatszam());
-        }
-        System.out.println("\n\n");
-    }
-    */
-
     void hozzaad(Vonat v){
         lista.add(v);
     }

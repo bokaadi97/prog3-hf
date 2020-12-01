@@ -12,16 +12,30 @@ public class Vonat implements Serializable{
     private double ar;
     private int telitettseg;
 
+    /**
+     * @param iH
+     * @param eH
+     * @param iI
+     * @param eI
+     * @param vSz
+     * @param f
+     * @param a
+     */
     Vonat(String iH, String eH, Ido iI, Ido eI, int vSz, int f, double a){
-        vonatszam = id++;
-        indulasHelye = iH;
-        erkezesHelye = eH;
-        indulasIdeje = iI;
-        erkezesIdeje = eI;
-        vagonokSzama = vSz;
-        ferohely = f;
-        ar = a;
-        telitettseg = 0;
+        if(!iI.kesobbiIdopont(eI) || vSz < 1 || f < 1 || a < 0)
+            throw new IllegalArgumentException("Hibás vagy értelmetlen érték!");
+        else{
+            vonatszam = id++;
+            indulasHelye = iH;
+            erkezesHelye = eH;
+            indulasIdeje = iI;
+            erkezesIdeje = eI;
+            vagonokSzama = vSz;
+            ferohely = f;
+            ar = a;
+            telitettseg = 0;
+        }
+
     }
 
     Vonat() {}
@@ -39,7 +53,7 @@ public class Vonat implements Serializable{
     void setId(int id){ this.id = id;}
     void setTelitettseg(int t){telitettseg = t;}
 
-    boolean betelnee(int jegyekSzama){
+    boolean tultelnee(int jegyekSzama){
         if(telitettseg + jegyekSzama > vagonokSzama * ferohely)
             return true;
         else

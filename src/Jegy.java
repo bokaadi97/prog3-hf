@@ -15,8 +15,4 @@ public class Jegy {
         kedvezmeny = k;
         kedvezmenyesAr = v.getAr()*(1-k*0.01);
     }
-
-    void kiir(){
-        System.out.println(vonat.getVonatszam() + " - " + vonat.getIndulasHelye() + " - " + kedvezmeny);
-    }
 }

@@ -1,5 +1,5 @@
 //TODO telítettség vizsgálata
-//TODO tesztesetek
+//TODO tesztesetek vonatnál 2, időnél 4
 //TODO dokumentáció elkészítése
 import javax.swing.*;
 import java.awt.*;

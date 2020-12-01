@@ -71,6 +71,7 @@ public class KosarAblak extends JFrame {
         public void actionPerformed(ActionEvent e) {
             szulo.getKosar().kosarUrites(szulo.getTarolo());
             KosarAblak.this.dispose();
+            JOptionPane.showMessageDialog(szulo, "Kosár törölve");
         }
 
     }
@@ -78,9 +79,9 @@ public class KosarAblak extends JFrame {
     private class FizetesButtonActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            szulo.getKosar().kosarTorles();
             KosarAblak.this.dispose();
-            JOptionPane.showMessageDialog(szulo, "Kérem fizessen, majd vegye el jegyét!\nKellemes utazást!");
+            JOptionPane.showMessageDialog(szulo, "Kérem fizessen " + szulo.getKosar().osszegez() + " forintot, majd vegye el jegyét!\nKellemes utazást!");
+            szulo.getKosar().kosarTorles();
         }
 
     }

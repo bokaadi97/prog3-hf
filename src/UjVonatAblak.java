@@ -23,9 +23,9 @@ public class UjVonatAblak extends JFrame{
         indulasHelyeSzoveg.setEditable(false);
         erkezesHelyeSzoveg = new JTextField("Érkezés helye: ");
         erkezesHelyeSzoveg.setEditable(false);
-        indulasIdejeSzoveg = new JTextField("Indulás ideje: ");
+        indulasIdejeSzoveg = new JTextField("Indulás ideje(HH:MM): ");
         indulasIdejeSzoveg.setEditable(false);
-        erkezesIdejeSzoveg = new JTextField("Érkezés ideje: ");
+        erkezesIdejeSzoveg = new JTextField("Érkezés ideje(HH:MM): ");
         erkezesIdejeSzoveg.setEditable(false);
         vagonokSzamaSzoveg = new JTextField("Vagonok száma: ");
         vagonokSzamaSzoveg.setEditable(false);
@@ -117,26 +117,34 @@ public class UjVonatAblak extends JFrame{
             if(!indulasHelye.getText().isEmpty() && !erkezesHelye.getText().isEmpty() && !indulasIdeje.getText().isEmpty() &&
                     !erkezesIdeje.getText().isEmpty() && !vagonokSzama.getText().isEmpty() && !ferohely.getText().isEmpty() &&
                     !ar.getText().isEmpty()){
-                Ido i = new Ido();
-                Vonat v = new Vonat(
-                        indulasHelye.getText(),
-                        erkezesHelye.getText(),
-                        i.stringToIdo(indulasIdeje.getText()),
-                        i.stringToIdo(erkezesIdeje.getText()),
-                        parseInt(vagonokSzama.getText()),
-                        parseInt(ferohely.getText()),
-                        parseDouble(ar.getText())
-                        );
-                szulo.getTarolo().hozzaad(v);
-                try {
-                    szulo.getTarolo().mentes();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                try{
+                    Ido i = new Ido();
+                    Vonat v = new Vonat(
+                            indulasHelye.getText(),
+                            erkezesHelye.getText(),
+                            i.stringToIdo(indulasIdeje.getText()),
+                            i.stringToIdo(erkezesIdeje.getText()),
+                            parseInt(vagonokSzama.getText()),
+                            parseInt(ferohely.getText()),
+                            parseDouble(ar.getText())
+                    );
+                    szulo.getTarolo().hozzaad(v);
+                    try {
+                        szulo.getTarolo().mentes();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                        JOptionPane.showMessageDialog(szulo, "Sikertelen mentés.", "Fájl hiba", JOptionPane.ERROR_MESSAGE);
+                    }
+                    JOptionPane.showMessageDialog(szulo, "Sikeres művelet.");
+                    UjVonatAblak.this.dispose();
                 }
-                JOptionPane.showMessageDialog(szulo, "Sikeres művelet.");
-                UjVonatAblak.this.dispose();
+                catch (IllegalArgumentException e1){
+                    JOptionPane.showMessageDialog(szulo, "Hibás vagy értelmetlen érték!", "Hiba", JOptionPane.ERROR_MESSAGE);
+                }
+
+
             }
-            else JOptionPane.showMessageDialog(szulo, "Hiányzó adatok", "Warning", JOptionPane.WARNING_MESSAGE);
+            else JOptionPane.showMessageDialog(szulo, "Hiányzó adatok", "Figyelmeztetés", JOptionPane.WARNING_MESSAGE);
         }
     }
 
