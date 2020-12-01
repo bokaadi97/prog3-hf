@@ -32,18 +32,30 @@ public class VonatTest {
     }
 
     @Test
-    public void testTultelnee() {
+    public void testTultelnee() throws Exception {
         //8 hely van a vonaton és alapból 0 a telítettség
-        Vonat v = new Vonat("Siófok", "Gárdony", new Ido(11,15), new Ido(12, 30), 2, 4, 1200);
+        Vonat v = new Vonat("Siófok", "Gárdony", new Ido(11, 15), new Ido(12, 30), 2, 4, 1200);
         Assert.assertEquals(false, v.tultelnee(2));
         Assert.assertEquals(false, v.tultelnee(8)); //épp megtelik
-        Assert.assertEquals(true, v.tultelnee(9));
 
         //innentől kezdve 4 a telítettség, de még mindig 8 hely van a vonaton
         v.setTelitettseg(4);
         Assert.assertEquals(false, v.tultelnee(3));
         Assert.assertEquals(false, v.tultelnee(4)); //épp megtelik
-        Assert.assertEquals(true, v.tultelnee(5));
+    }
 
+    @Test(expected=Exception.class)
+    public void testTultelneeException1() throws Exception {
+        //8 hely van a vonaton és alapból 0 a telítettség
+        Vonat v = new Vonat("Siófok", "Gárdony", new Ido(11, 15), new Ido(12, 30), 2, 4, 1200);
+        v.tultelnee(9);
+    }
+
+    @Test(expected=Exception.class)
+    public void testTultelneeException2() throws Exception {
+        //8 hely van a vonaton és 4 a telítettség
+        Vonat v = new Vonat("Siófok", "Gárdony", new Ido(11, 15), new Ido(12, 30), 2, 4, 1200);
+        v.setTelitettseg(4);
+        v.tultelnee(5);
     }
 }

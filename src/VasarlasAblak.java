@@ -104,44 +104,72 @@ public class VasarlasAblak extends JFrame {
 
     private class OkButtonActionListener implements ActionListener {
         /**
-         * 
+         *
          * @param e
          * */
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(!vonatszam.getText().isEmpty() && !teljes.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(teljes.getText()))
-                            ){
-                szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 0, parseInt(teljes.getText()));
-                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
-                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(teljes.getText())
-                );
+            try{
+                if(!vonatszam.getText().isEmpty()){
+                    szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText()));
+                }
+
+                try {
+                    if(!vonatszam.getText().isEmpty() && !teljes.getText().isEmpty() &&
+                            !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(teljes.getText()))
+                    ){
+                        szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 0, parseInt(teljes.getText()));
+                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
+                                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(teljes.getText())
+                        );
+                    }
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(szulo, "Sajnos már elfogytak a szabad jegyek!", "Sikertelen vásárlás(Teljes áru)", JOptionPane.ERROR_MESSAGE);
+                    exception.printStackTrace();
+                }
+                try {
+                    if(!vonatszam.getText().isEmpty() && !kedv33.getText().isEmpty() &&
+                            !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv33.getText()))){
+                        szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 33, parseInt(kedv33.getText()));
+                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
+                                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv33.getText())
+                        );
+                    }
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(szulo, "Sajnos már elfogytak a szabad jegyek!", "Sikertelen vásárlás(33%-os)", JOptionPane.ERROR_MESSAGE);
+                    exception.printStackTrace();
+                }
+                try {
+                    if(!vonatszam.getText().isEmpty() && !kedv50.getText().isEmpty() &&
+                            !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv50.getText()))){
+                        szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 50, parseInt(kedv50.getText()));
+                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
+                                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv50.getText())
+                        );
+                    }
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(szulo, "Sajnos már elfogytak a szabad jegyek!", "Sikertelen vásárlás(50%-os)", JOptionPane.ERROR_MESSAGE);
+                    exception.printStackTrace();
+                }
+                try {
+                    if(!vonatszam.getText().isEmpty() && !kedv90.getText().isEmpty() &&
+                            !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv90.getText()))){
+                        szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 90, parseInt(kedv90.getText()));
+                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
+                                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv90.getText())
+                        );
+                    }
+                } catch (Exception exception) {
+                    JOptionPane.showMessageDialog(szulo, "Sajnos már elfogytak a szabad jegyek!", "Sikertelen vásárlás(90%os)", JOptionPane.ERROR_MESSAGE);
+                    exception.printStackTrace();
+                }
+
+                VasarlasAblak.this.dispose();
+            } catch (IllegalArgumentException iae) {
+                JOptionPane.showMessageDialog(szulo, "Nem létezik ilyen számú vonat!", "Vonatszám hiba", JOptionPane.ERROR_MESSAGE);
             }
-            if(!vonatszam.getText().isEmpty() && !kedv33.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv33.getText()))){
-                szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 33, parseInt(kedv33.getText()));
-                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
-                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv33.getText())
-                );
-            }
-            if(!vonatszam.getText().isEmpty() && !kedv50.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv50.getText()))){
-                szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 50, parseInt(kedv50.getText()));
-                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
-                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv50.getText())
-                );
-            }
-            if(!vonatszam.getText().isEmpty() && !kedv90.getText().isEmpty() &&
-                    !szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).tultelnee(parseInt(kedv90.getText()))){
-                szulo.getKosar().kosarbaTesz(szulo.getTarolo(), parseInt(vonatszam.getText()), 90, parseInt(kedv90.getText()));
-                szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).setTelitettseg(
-                        szulo.getTarolo().vonatKereseseVonatszamAlapjan(parseInt(vonatszam.getText())).getTelitettseg() + parseInt(kedv90.getText())
-                );
-            }
-            else {
-                JOptionPane.showMessageDialog(szulo, "Hiányzó adatok", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-            VasarlasAblak.this.dispose();
+
+
         }
 
     }

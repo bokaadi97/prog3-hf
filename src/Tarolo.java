@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Tarolo extends AbstractTableModel {
     private ArrayList<Vonat> lista = new ArrayList<>();
 
-    Vonat vonatKereseseVonatszamAlapjan(int vonatszam){
+    Vonat vonatKereseseVonatszamAlapjan(int vonatszam) throws IllegalArgumentException {
         for(int i = 0; i < lista.size(); i++){
             if(vonatszam == lista.get(i).getVonatszam()){
                 return lista.get(i);
             }
         }
-        return null;
+        throw new IllegalArgumentException();
     }
 
     /**

@@ -1,4 +1,6 @@
-//TODO telítettség vizsgálata
+//TODO firetabelek
+//TODO főoldalra fizetés
+//TODO vásárlás ablaknál link a vonatokra
 //TODO tesztesetek vonatnál 2, időnél 4
 //TODO dokumentáció elkészítése
 import javax.swing.*;

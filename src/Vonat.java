@@ -53,9 +53,9 @@ public class Vonat implements Serializable{
     void setId(int id){ this.id = id;}
     void setTelitettseg(int t){telitettseg = t;}
 
-    boolean tultelnee(int jegyekSzama){
+    boolean tultelnee(int jegyekSzama) throws Exception {
         if(telitettseg + jegyekSzama > vagonokSzama * ferohely)
-            return true;
+            throw new Exception("Sajnos már elfogytak a szabad jegyek!");
         else
             return false;
     }
